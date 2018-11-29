@@ -2,12 +2,12 @@
 
 Here is the project which I did for data science task interview<br />
 The tasks are :<br />
-    Word and phrase distribution.<br />
-    Identify all the places and characters in the book.<br />
-    Identify sentiments of the different sentences and chapters.<br />
-    Summarize paragraphs.<br />
-    Extract intents from sentences.<br />
-    Track key concepts throughout the book.<br />
+   &nbsp; &nbsp; Word and phrase distribution.<br />
+    &nbsp; &nbsp; Identify all the places and characters in the book.<br />
+    &nbsp; &nbsp; Identify sentiments of the different sentences and chapters.<br />
+    &nbsp; &nbsp; Summarize paragraphs.<br />
+    &nbsp; &nbsp; Extract intents from sentences.<br />
+    &nbsp; &nbsp; Track key concepts throughout the book.<br />
 The data source is [<War and Peace book one>](https://en.wikisource.org/wiki/War_and_Peace/Book_One) .
 
 ## Abstract
@@ -51,7 +51,7 @@ And nomally the attitude between characters can change with the development of t
 ```
 ### results
 I use the main character Pierre as test.  The best character to him is Mary Bolkonskaya and worst is Dolokhov. They will have some drama in other chapters following. The most frequent mentioned togather character is Prince Anatole.<br />
-From the figure you can see Dolokhov meet Pierre in a bar in chapter 9. And they have no connecation after that. And sentiment score of Prince Anatole keeps changing in different chapters.<br />
+From the figure you can see Dolokhov and Pierre have a not so pleasure experience in chapter 9. They meet in a bar and Dolokhov try to bet a Englishman . And they have no connecation after that. And sentiment score of Prince Anatole keeps changing in different chapters.<br />
 ![figure](https://github.com/licheng5625/data-science-task/blob/master/result.png) )
 
 ### limitations
