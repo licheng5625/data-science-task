@@ -59,13 +59,21 @@ I did not read the book before. I cannot explain what happened causes the sentim
 
 The story is too short to describe all the characters. Their story is still going on. It would be interesting to add following chapters and to see if the sentiment between Helene and Pierre rises up and falls down to negative .<br />
 
-We only caculate 3 lines but those content might not relevent to those characters or there are more lines about them. We should caculate the score per event between two characters. Then we need like event detection etc.<br />
+We only caculate 3 sentences around the characters but those contents might not be relevent to those characters or there are more sentences following. We should caculate the score per event between two characters. Then we need event detection etc.<br />
 We didn't consider the different weights of sentiment in different chapter - a fading model. The sentiment score of chapter 1 should not be same value as current chapter. We could add more weight for near chapter and ignore the sentiment score from far far ealier chapters<br />
 
 ## Summarize paragraphs
-I knew a algorithm for summarizing text when I did master thesis. It called [Textrank]( https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf). It is similar to pagerank. But my experience is Textrank is not suitble for short text. So I tried to run it to summarize each chapter , the result is meanless
+I knew a algorithm for summarizing text when I did master thesis. It called [Textrank]( https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf). It is similar to pagerank. So it is graphbased algorithm and do not need to train<br />
 
+### how to run
+```
+* put the articles into Textrank/articles
 
+* run textrank.py
+
+```
+### results
+[here] (https://github.com/licheng5625/data-science-task/tree/master/TextRank/summaries)
 
 
 ## Built With
