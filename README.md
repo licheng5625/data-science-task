@@ -1,13 +1,13 @@
 # Data Science Task
 
-Here is the project which I did for data science task interview
-The tasks are :
-    Word and phrase distribution.
-    Identify all the places and characters in the book.
-    Identify sentiments of the different sentences and chapters.
-    Summarize paragraphs.
-    Extract intents from sentences.
-    Track key concepts throughout the book.
+Here is the project which I did for data science task interview<br />
+The tasks are :<br />
+    Word and phrase distribution.<br />
+    Identify all the places and characters in the book.<br />
+    Identify sentiments of the different sentences and chapters.<br />
+    Summarize paragraphs.<br />
+    Extract intents from sentences.<br />
+    Track key concepts throughout the book.<br />
 The data source is [<War and Peace book one>](https://en.wikisource.org/wiki/War_and_Peace/Book_One) .
 
 ## Abstract
@@ -26,11 +26,11 @@ This is a named entity recognition task. It could use supervised data to train a
 
 
 ### results
-Total 129 [fullnames](https://github.com/licheng5625/data-science-task/blob/master/characts.txt) and 51 [locations](https://github.com/licheng5625/data-science-task/blob/master/locations.txt) are extracted.
-I checked some of them in [wiki](https://en.wikipedia.org/wiki/List_of_War_and_Peace_characters). Most of them can be found in that wiki or you can get some results from google with name and "war and peace" as key word.
+Total 129 [fullnames](https://github.com/licheng5625/data-science-task/blob/master/characts.txt) and 51 [locations](https://github.com/licheng5625/data-science-task/blob/master/locations.txt) are extracted.<br />
+I checked some of them in [wiki](https://en.wikipedia.org/wiki/List_of_War_and_Peace_characters). Most of them can be found in that wiki or you can get some results from google with name and "war and peace" as key word.<br />
 
 ### limitations
-There are still some funny characters like Mimi which is actrully the doll of natasha or Andrusha which is a pet name.
+There are still some funny characters like Mimi which is actrully the doll of Natasha or Andrusha which is a pet name.
 And Anna Pavlovna Scherer and Annette Scherer are the same person, the model is failed to identify that.
 
 ## Identify sentiments between different characters
@@ -40,9 +40,9 @@ It is raining                    # sentiment score 0
 "I hate you !" said by Natasha.  # sentiment score -0.5  Natasha is mentioned
 "And I Love Pierre"              # sentiment score 0.8  Pierre is mentioned
 ```
-The final score of the conversaion is ( 0.8-0.5 )/3 = 0.1. Natasha and Pierre get 0.1 point for thier relation here.
-
-And nomally the attitude between characters can change with the development of the story. So we compare all the sentiment score with time.
+The final score of the conversaion is ( 0.8-0.5 )/3 = 0.1. Natasha and Pierre get 0.1 point for thier relation here.<br />
+<br />
+And nomally the attitude between characters can change with the development of the story. So we compare all the sentiment score with time.<br />
 
 ### how to run
 ```
@@ -50,15 +50,17 @@ And nomally the attitude between characters can change with the development of t
 
 ```
 ### results
-I use the main character Pierre as test.  The best character to him is Mary Bolkonskaya and worst is Dolokhov. They will have some drama in other chapters following. The most frequent mentioned togather character is Prince Anatole.
-From the figure you can see Dolokhov meet Pierre in a bar in chapter 9. And they have no connecation after that. And sentiment score of Prince Anatole keeps changing in different chapters.
+I use the main character Pierre as test.  The best character to him is Mary Bolkonskaya and worst is Dolokhov. They will have some drama in other chapters following. The most frequent mentioned togather character is Prince Anatole.<br />
+From the figure you can see Dolokhov meet Pierre in a bar in chapter 9. And they have no connecation after that. And sentiment score of Prince Anatole keeps changing in different chapters.<br />
 ![figure](https://github.com/licheng5625/data-science-task/blob/master/result.png) )
 
 ### limitations
 I did not read the book before. I cannot explain what happened causes the sentiment score increasing or decreasing........(I watched the TV show though)
-The story is too short to describe all the characters. Their story is still going on. It would be interesting to add following chapters and to see if the sentiment between Helene and Pierre rises up and falls down to negative .
-We only caculate 3 lines but those content might not relevent to those characters or there are more lines about them. We should caculate the score per event between two characters. Then we need like event detection etc.
-We didn't consider the different weights of sentiment in different chapter - a fading model. The sentiment score of chapter 1 should not be same value as current chapter. We could add more weight for near chapter and ignore the sentiment score from far far ealier chapters
+
+The story is too short to describe all the characters. Their story is still going on. It would be interesting to add following chapters and to see if the sentiment between Helene and Pierre rises up and falls down to negative .<br />
+
+We only caculate 3 lines but those content might not relevent to those characters or there are more lines about them. We should caculate the score per event between two characters. Then we need like event detection etc.<br />
+We didn't consider the different weights of sentiment in different chapter - a fading model. The sentiment score of chapter 1 should not be same value as current chapter. We could add more weight for near chapter and ignore the sentiment score from far far ealier chapters<br />
 
 ## Summarize paragraphs
 I knew a algorithm for summarizing text when I did master thesis. It called [Textrank]( https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf). It is similar to pagerank. But my experience is Textrank is not suitble for short text. So I tried to run it to summarize each chapter , the result is meanless
