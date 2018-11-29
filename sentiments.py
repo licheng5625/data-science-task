@@ -105,6 +105,38 @@ for root, dirs, files in list_dirs:
                     relationGraphThisChapter[relCharacts][to_characts]['MeanSentiment'] =  0
         relationGraphlist.append(relationGraphThisChapter)
 # As a result we can see a time series sentiment scores between two characts
-for relation in relationGraphlist:
-        print(relation['Monsieur Pierre']['Natasha'])
 
+lastChapter = relationGraphlist[len(relationGraphlist)-1]['Monsieur Pierre']
+maxSentiment = -100
+strongestRelation = -100
+
+minSentiment = 100
+for lastChapterCharacters in lastChapter.keys():
+    if lastChapter[lastChapterCharacters]['times'] < 10 or lastChapterCharacters == 'God':
+        continue
+
+    if lastChapter[lastChapterCharacters]['times'] > strongestRelation:
+        strongestRelation = lastChapter[lastChapterCharacters]['times']
+        hangoutbuddy = lastChapterCharacters
+
+    if lastChapter[lastChapterCharacters]['MeanSentiment'] < minSentiment:
+        minSentiment = lastChapter[lastChapterCharacters]['MeanSentiment']
+        worstBuddy = lastChapterCharacters
+    if lastChapter[lastChapterCharacters]['MeanSentiment'] > maxSentiment:
+        maxSentiment = lastChapter[lastChapterCharacters]['MeanSentiment']
+        bestBuddy = lastChapterCharacters
+
+print( "best Buddy to Pierre is " + bestBuddy)
+print( "worst Buddy to Pierre is " + worstBuddy)
+print( "most-frequent-meeting Buddy to Pierre is " + hangoutbuddy)
+
+for relation in relationGraphlist:
+    print(relation['Monsieur Pierre'][bestBuddy]['MeanSentiment'])
+print('_________________________')
+
+for relation in relationGraphlist:
+    print(relation['Monsieur Pierre'][worstBuddy]['MeanSentiment'])
+print('_________________________')
+
+for relation in relationGraphlist:
+    print(relation['Monsieur Pierre'][hangoutbuddy]['MeanSentiment'])
