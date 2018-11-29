@@ -131,12 +131,12 @@ print( "worst Buddy to Pierre is " + worstBuddy)
 print( "most-frequent-meeting Buddy to Pierre is " + hangoutbuddy)
 
 for relation in relationGraphlist:
-    print(relation['Monsieur Pierre'][bestBuddy]['MeanSentiment'])
+    print(relation['Monsieur Pierre'][bestBuddy])
 print('_________________________')
 
 for relation in relationGraphlist:
-    print(relation['Monsieur Pierre'][worstBuddy]['MeanSentiment'])
+    print(relation['Monsieur Pierre'][worstBuddy])
 print('_________________________')
 
 for relation in relationGraphlist:
-    print(relation['Monsieur Pierre'][hangoutbuddy]['MeanSentiment'])
+    print(relation['Monsieur Pierre'][hangoutbuddy])
