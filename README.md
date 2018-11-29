@@ -18,15 +18,16 @@ Here I introduce a approach to anlyse the time(chapter)-series sentiment relatio
 
 This is a named entity recognition task. It could use supervised data to train a recognizer for this book. But I need a ladeled text for training. And there are papers about "unsupervised" named entity recognition. But we still need some seeds and the dataset might be not big engough to do so (I didn't try). So I used a pre-trained recognizer from Stanford with 3 class dimension .
 ### how to run
-
- * run getCharacters.py
- * you will get two lists --- characters' fullname and locations
+```
+* run getCharacters.py
+* you will get two lists --- characters' fullname and locations
+ ```
 
 
 
 ### results
 Total 129 [fullnames](https://github.com/licheng5625/data-science-task/blob/master/characts.txt) and 51 [locations](https://github.com/licheng5625/data-science-task/blob/master/locations.txt) are extracted.
-I checked some of them in [wiki](https://en.wikipedia.org/wiki/List_of_War_and_Peace_characters). Most of them you can find in that wiki or you can some results from google with name and "war and peace" as key word.
+I checked some of them in [wiki](https://en.wikipedia.org/wiki/List_of_War_and_Peace_characters). Most of them can be found in that wiki or you can get some results from google with name and "war and peace" as key word.
 
 ### limitations
 There are still some funny characters like Mimi which is actrully the doll of natasha or Andrusha which is a pet name.
@@ -54,6 +55,15 @@ From the figure you can see Dolokhov meet Pierre in a bar in chapter 9. And they
 ![figure](https://github.com/licheng5625/data-science-task/blob/master/result.png) )
 
 ### limitations
+I did not read the book before. I cannot explain what happened causes the sentiment score increasing or decreasing........(I watched the TV show though)
+The story is too short to describe all the characters. Their story is still going on. It would be interesting to add following chapters and to see if the sentiment between Helene and Pierre rises up and falls down to negative .
+We only caculate 3 lines but those content might not relevent to those characters or there are more lines about them. We should caculate the score per event between two characters. Then we need like event detection etc.
+We didn't consider the different weights of sentiment in different chapter - a fading model. The sentiment score of chapter 1 should not be same value as current chapter. We could add more weight for near chapter and ignore the sentiment score from far far ealier chapters
+
+## Summarize paragraphs
+I knew a algorithm for summarizing text when I did master thesis. It called [Textrank]( https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf). It is similar to pagerank. But my experience is Textrank is not suitble for short text. So I tried to run it to summarize each chapter , the result is meanless
+
+
 
 
 ## Built With
