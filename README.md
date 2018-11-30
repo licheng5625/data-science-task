@@ -11,7 +11,8 @@ The tasks are :<br />
 The data source is [<War and Peace book one>](https://en.wikisource.org/wiki/War_and_Peace/Book_One) .
 
 ## Abstract
-Here I introduce a approach to anlyse the time(chapter)-series sentiment relation between character in War and Peace book one. The relation between characters could change along the story. Lovers may become haters. I use [Named Entity Recognizer](https://nlp.stanford.edu/software/CRF-NER.shtml) of Stanford NLP Group to identify characters and locations. And based on the ntlk's [Sentiment Intensity Analyzer](https://www.nltk.org/api/nltk.sentiment.html), we can calculate the sentiment score of content of two characters. In the end we can see how those scores change in different chapters.
+Here I introduce a approach to anlyse the time(chapter)-series sentiment relation between character in War and Peace book one. The relation between characters could change along the story. Lovers may become haters. I use [Named Entity Recognizer](https://nlp.stanford.edu/software/CRF-NER.shtml) of Stanford NLP Group to identify characters and locations. And based on the ntlk's [Sentiment Intensity Analyzer](https://www.nltk.org/api/nltk.sentiment.html), we can calculate the sentiment score of content of two characters. In the end we can see how those scores change in different chapters. Also we try Textrank for text summarization and RNN for text generation.<br />
+Time is really short and I have no powerful laptop. It is difficult to get a ideal result from the training. But I show the direction towards to the target.
 
 
 ## Identify the places and characters
@@ -34,32 +35,31 @@ There are still some funny characters like Mimi which is actrully the doll of Na
 And Anna Pavlovna Scherer and Annette Scherer are the same person, the model is failed to identify that.
 
 ## Identify sentiments between different characters
-Same reason as the previous task, I have no labeled data for sentiments of this book. So I use the pre-trained model from NTLK. This libiray can caculate a sentiment score of given text. We could use this to identify sentiments of sentences or chapters. But since we have already indenfied all characters, we can know the sentiment between them. We define two characters are connected if they are mentioned within two sentences. We calculate the sentiment score of nearby (3) sentences, we use the average score as the sentiments of this relation.
+Same reason as the previous task, I have no labeled data for sentiments of this book. So I use the pre-trained model from NTLK. This library can caculate a sentiment score of given text. We could use this to identify sentiments of sentences or chapters. But since we have already indenfied all characters‘ name , we can know the sentiment between them. We define two characters are connected if they are mentioned within two sentences. We calculate the average sentiment score of nearby (3) sentences, we use the average score as the sentiments of this relation.
 ```
 It is raining                    # sentiment score 0
 "I hate you !" said by Natasha.  # sentiment score -0.5  Natasha is mentioned
 "And I Love Pierre"              # sentiment score 0.8  Pierre is mentioned
 ```
-The final score of the conversaion is ( 0.8-0.5 )/3 = 0.1. Natasha and Pierre get 0.1 point for thier relation here.<br />
+The final score of this conversaion is ( 0.8-0.5 )/3 = 0.1. Natasha and Pierre get 0.1 point for thier relation here.<br />
 <br />
-And nomally the attitude between characters can change with the development of the story. So we compare all the sentiment score with time.<br />
-
+And normally the attitude between characters can change with the development of the story. So we compare all the sentiment score with time.<br />
 ### how to run
 ```
 * run sentiments.py
 
 ```
 ### results
-I use the main character Pierre as test.  The best character to him is Mary Bolkonskaya and worst is Dolokhov. They will have some drama in other chapters following. The most frequent mentioned togather character is Prince Anatole.<br />
-From the figure you can see Dolokhov and Pierre have a not so pleasure experience in chapter 9. They meet in a bar and Dolokhov try to bet a Englishman . And they have no connecation after that. And sentiment score of Prince Anatole keeps changing in different chapters.<br />
+I use the main character Pierre as test.  The best character to him is Mary Bolkonskaya and worst is Dolokhov. They will have some drama in other chapters following. It makes sence they have a bad relation. The most frequent mentioned togather character is Prince Anatole.<br />
+From the figure you can see Dolokhov and Pierre have a not so pleasure experience in chapter 9. They meet in a bar and Dolokhov try to bet with a Englishman . And they have no connecation after that. And sentiment score of Prince Anatole keeps changing in different chapters.<br />
 ![figure](https://github.com/licheng5625/data-science-task/blob/master/result.png) )
 
 ### limitations
-I did not read the book before. I cannot explain what happened causes the sentiment score increasing or decreasing........(I watched the TV show though)
+I did not read the book before. I cannot explain what happened causes the sentiment score increasing or decreasing........(although I watched the TV show)
 
-The story is too short to describe all the characters. Their story is still going on. It would be interesting to add following chapters and to see if the sentiment between Helene and Pierre rises up and falls down to negative .<br />
+The story is too short to describe all the characters. Their story is still going on. It would be interesting to add following chapters and to see if the sentiment between Helene and Pierre rises up in their wedding and falls down to negative .<br />
 
-We only caculate 3 sentences around the characters but those contents might not be relevent to those characters or there are more sentences following. We should caculate the score per event between two characters. Then we need event detection etc.<br />
+We only caculate 3 sentences around the characters but those contents might not be relevent to those characters or there are more sentences about them following. We should caculate the score per event between two characters. Then we need event detection etc.<br />
 We didn't consider the different weights of sentiment in different chapter - a fading model. The sentiment score of chapter 1 should not be same value as current chapter. We could add more weight for near chapter and ignore the sentiment score from far far ealier chapters<br />
 
 ## Summarize paragraphs
