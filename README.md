@@ -80,10 +80,13 @@ I knew another model which could do this task. It is called [FastText](https://g
 ## Text Gereration
  We could train a RNN model to gererate text to simulate Leo Tolstoy. First I try a single layer RNN, after 20 epochs loss is stable around 0.0789. Source code refences to Jason Brownlee's [blog](https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/).
  ```
+ loss: 2.6921 - acc: 0.2245 - val_loss: 2.7897 - val_acc: 0.2073
+ 
  Seed:
  " " he said at last. "you know i did all a father could for their education, and they have both turned "
  Result:
  "aa the  aoe  ao woe  ao woe  ao  an ah the  ao woe  ao  an ah the  ao woe
  ```
- The text are repeating itself. We can use more layers or more train data. So I try agin with 2 layer LSTM ,but I have no GPU laptop. It is still running 12:30 30.Nov.
+ The text are repeating itself. We can use more layers or more train data. So I try agin with 2 layer LSTM ,but I have no GPU laptop. It is still running 12:30 30.Nov.  If the result is better, I will update here.
+
  

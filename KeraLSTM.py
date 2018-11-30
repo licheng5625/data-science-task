@@ -39,13 +39,12 @@ X = X / float(n_vocab)
 y = np_utils.to_categorical(dataY)
 # define the LSTM model
 model = Sequential()
-model.add(LSTM(256, input_shape=(X.shape[1], X.shape[2])))
-model.add(Dropout(0.2))
+model.add(LSTM(256,dropout_U=0.2, input_shape=(X.shape[1], X.shape[2]),return_sequences=False))
 model.add(Dense(y.shape[1], activation='softmax'))
 # load the network weights
-filename = "weights-improvement-01-0.0789.hdf5"
+filename = "weights-improvement-02-2.6816.hdf5"
 model.load_weights(filename)
-model.compile(loss='binary_crossentropy',
+model.compile(loss='categorical_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
 # pick a random seed

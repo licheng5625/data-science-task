@@ -65,10 +65,10 @@ model = Sequential()
 model.add(LSTM(256,dropout_U=0.2, input_shape=(X.shape[1], X.shape[2]),return_sequences=True))
 model.add(LSTM(256,dropout_U=0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
-#filename = "weights-improvement-00-0.0795.hdf5"
+filename = "weights-improvement-00-0.0795.hdf5"
 #model.load_weights(filename)
 
-model.compile(loss='binary_crossentropy',
+model.compile(loss='categorical_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
 # define the checkpoint
@@ -77,7 +77,7 @@ checkpoint = callbacks.ModelCheckpoint(filepath, monitor='loss', verbose=1, save
 earlyStopping = callbacks.EarlyStopping(monitor='val_loss', patience=0, verbose=0, mode='auto')
 callbacks_list = [checkpoint,earlyStopping]
 # fit the model
-model.fit(X, y, validation_data=(testX, testY) ,nb_epoch=10, batch_size=128, callbacks=[checkpoint,earlyStopping])
+model.fit(X, y, validation_data=(testX, testY) ,nb_epoch=20, batch_size=128, callbacks=[checkpoint,earlyStopping])
 score, acc = model.evaluate(testX, testY,
                             batch_size=128)
 print('Test score:', score)
