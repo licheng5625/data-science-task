@@ -72,6 +72,7 @@ I knew a algorithm for summarizing text when I did master thesis. It called [Tex
 * run textrank.py
 
 ```
+I knew another model which could do this task. It is called [FastText](https://github.com/facebookresearch/fastText/tree/master/python). I used this in my master thesis, but the result is not so good. The advantage of this model is you can fast train.
 ### results
 [here](https://github.com/licheng5625/data-science-task/tree/master/TextRank/summaries)
 
