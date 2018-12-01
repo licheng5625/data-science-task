@@ -81,8 +81,9 @@ I knew another model which could do this task. It is called [FastText](https://g
  We could train a RNN model to gererate text to simulate Leo Tolstoy. First I try a single layer RNN, after 20 epochs accuracy is stable around 0.022. Source code refences to Jason Brownlee's [blog](https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/). I use a sentence from chapter 4 for testing.
  ```
  
- Seed:
- "andre," said his wife, addressing her husband in the same coquettish manner in which she spoke to Original:
+ Text from chapter 4:
+ "andre," said his wife, addressing her husband in the same coquettish manner in which she spoke to
+ Original:
  ther men, "the vicomte has been telling us such a tale about Mademoiselle George and Buonaparte!"
  ```
 ```
