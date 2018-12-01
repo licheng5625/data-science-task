@@ -92,11 +92,14 @@ I knew another model which could do this task. It is called [FastText](https://g
  er  an  an whe  aa toe  aad  ah  an whe  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad
  
  Result 2 layer Rnn with text from chapter 1-3 for training:
- ent the gopdror. and the sigled to the cuc d'enghien had been edcimed to the cuc d'enghien had been rectmedd to his face of the conversation of the eeae and and she sic buc d'enghien had been rectmedd to his face of the conversation of the eeae ootioe orincess had beenmi wou as the soom as the sooke thi abbe another dnd not one of the soom as the sooke man with a prince and secllnende to the goperor. and the sic bbbe and prersiog his face of the eoneror. and the sic bbbe and prersing his face of the eoneror. and the sic bbbe and prersing his face of the eoneror. and the sic bbbe and prersing his face of the eoneror.
+ e the contersation of the eucs foo her armt wound man wou doo't snoe as the soond man an an anpaetad him an anpie dor to an a gopota of her baae she sicomte was an alliingedted the sooke was something and siilent and ceammed ro her faae she samk-
+ "i kave anweys riaak to lat ay the siiltene that hav been reception and anna pavlovna.
+ 
+ "you know you are you to ae a denefation face of my workd man wou and not know ier face she sooe an an anpiectied ro the conrersation of the eua d'enghien had been ddcided the sas of her face of the cabe of my sooke man as ho a lan wou aoe oo looked and she sooe an and adain of a pleastrelt of the sas one of the eeautiful face of a man wioh man wou and not know ier face she sicomte was a searlte was a seerlee roinee and sooking to the cuc d'enghien had been ddcn inwine eers was a say to be anka pavlovna.
 
  ```
  The text of result 1 is just repeating itself. We can use more layers or more train data. So I try agin with 2 layer LSTM ,but I have no GPU laptop. It is still running 12:30 30.Nov.<br />
- 12.1 UPDATE  I get a accuracy 56% 2 layer Rnn model. I show the result above. There are some english words already, but the whole sentence still has no sence. I think with a bigger data and more time. The result could be better.(at least after 20 epochs , the model does still not converge )
+ 12.1 UPDATE  I get a accuracy 56% 2 layer Rnn model. I show the result above. There are some english words already.  It learned how to use dot and anna pavlovna is mentioned, but the whole sentence still has no sence. I think with a bigger data and more time. The result could be better.(at least after 20 epochs , the model does still not converge )
 
 
  

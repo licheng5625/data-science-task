@@ -9,7 +9,7 @@ from keras.utils import np_utils
 # load ascii text and covert to lowercase
 filename = "Charpter 1-3.txt"
 
-evaluatefilename = "Chapter2 part.txt"
+evaluatefilename = "Chapter4 part.txt"
 raw_text = open(filename).read()
 raw_text = raw_text.lower()
 raw_text_test = open(evaluatefilename).read()
@@ -65,7 +65,7 @@ model = Sequential()
 model.add(LSTM(256,dropout_U=0.2, input_shape=(X.shape[1], X.shape[2]),return_sequences=True))
 model.add(LSTM(256,dropout_U=0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
-filename = "weights-improvement-19-1.6997.hdf5.2layer"
+filename = "weights-improvement-00-1.6843.hdf5.2layer"
 model.load_weights(filename)
 
 model.compile(loss='categorical_crossentropy',
