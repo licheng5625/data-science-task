@@ -8,9 +8,11 @@ from keras.layers import LSTM
 from keras.callbacks import ModelCheckpoint
 from keras.utils import np_utils
 # load ascii text and covert to lowercase
-filename = "CHAPTERS/Charpter a1.txt"
+filename = "Charpter 1-3.txt"
 raw_text = open(filename).read()
 raw_text = raw_text.lower()
+testTextRaw = '"Andre," said his wife, addressing her husband in the same coquettish manner in which she spoke to other men'.lower()
+
 # create mapping of unique chars to integers, and a reverse mapping
 chars = sorted(list(set(raw_text)))
 char_to_int = dict((c, i) for i, c in enumerate(chars))
@@ -24,6 +26,9 @@ print("Total Vocab: ", n_vocab)
 seq_length = 100
 dataX = []
 dataY = []
+testdataX=[]
+testdata=testTextRaw[0:0 + seq_length]
+testdataX.append([char_to_int[char] for char in testdata])
 for i in range(0, n_chars - seq_length, 1):
 	seq_in = raw_text[i:i + seq_length]
 	seq_out = raw_text[i + seq_length]
@@ -39,10 +44,11 @@ X = X / float(n_vocab)
 y = np_utils.to_categorical(dataY)
 # define the LSTM model
 model = Sequential()
-model.add(LSTM(256,dropout_U=0.2, input_shape=(X.shape[1], X.shape[2]),return_sequences=False))
+model.add(LSTM(256,dropout_U=0.2, input_shape=(X.shape[1], X.shape[2]),return_sequences=True))
+model.add(LSTM(256,dropout_U=0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
 # load the network weights
-filename = "weights-improvement-02-2.6816.hdf5"
+filename = "weights-improvement-19-1.6997.hdf5.2layer"
 model.load_weights(filename)
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
@@ -51,7 +57,9 @@ model.compile(loss='categorical_crossentropy',
 start = numpy.random.randint(0, len(dataX)-1)
 pattern = dataX[start]
 print("Seed:")
+pattern = testdataX[0]
 print("\"", ''.join([int_to_char[value] for value in pattern]), "\"")
+
 # generate characters
 for i in range(1000):
 	x = numpy.reshape(pattern, (1, len(pattern), 1))

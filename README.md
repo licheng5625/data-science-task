@@ -78,15 +78,24 @@ I knew another model which could do this task. It is called [FastText](https://g
 
 
 ## Text Gereration
- We could train a RNN model to gererate text to simulate Leo Tolstoy. First I try a single layer RNN, after 20 epochs loss is stable around 0.0789. Source code refences to Jason Brownlee's [blog](https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/).
+ We could train a RNN model to gererate text to simulate Leo Tolstoy. First I try a single layer RNN, after 20 epochs accuracy is stable around 0.022. Source code refences to Jason Brownlee's [blog](https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/). I use a sentence from chapter 4 for testing.
  ```
- loss: 2.6921 - acc: 0.2245 - val_loss: 2.7897 - val_acc: 0.2073
  
  Seed:
- " " he said at last. "you know i did all a father could for their education, and they have both turned "
- Result:
- "aa the  aoe  ao woe  ao woe  ao  an ah the  ao woe  ao  an ah the  ao woe
+ "andre," said his wife, addressing her husband in the same coquettish manner in which she spoke to Original:
+ ther men, "the vicomte has been telling us such a tale about Mademoiselle George and Buonaparte!"
  ```
- The text are repeating itself. We can use more layers or more train data. So I try agin with 2 layer LSTM ,but I have no GPU laptop. It is still running 12:30 30.Nov.  If the result is better, I will update here.
+```
+ acc: 0.2245  - val_acc: 0.2073
+ Result 1 layer Rnn with text from chapter 1 for training:
+ er  an  an whe  aa toe  aad  ah  an whe  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad  ah  an  hh thu  aa tou  aad  ah  an whe  aa tou  aad
+ 
+ Result 2 layer Rnn with text from chapter 1-3 for training:
+ ent the gopdror. and the sigled to the cuc d'enghien had been edcimed to the cuc d'enghien had been rectmedd to his face of the conversation of the eeae and and she sic buc d'enghien had been rectmedd to his face of the conversation of the eeae ootioe orincess had beenmi wou as the soom as the sooke thi abbe another dnd not one of the soom as the sooke man with a prince and secllnende to the goperor. and the sic bbbe and prersiog his face of the eoneror. and the sic bbbe and prersing his face of the eoneror. and the sic bbbe and prersing his face of the eoneror. and the sic bbbe and prersing his face of the eoneror.
+
+ ```
+ The text of result 1 is just repeating itself. We can use more layers or more train data. So I try agin with 2 layer LSTM ,but I have no GPU laptop. It is still running 12:30 30.Nov.<br />
+ 12.1 UPDATE  I get a accuracy 56% 2 layer Rnn model. I show the result above. There are some english words already, but the whole sentence still has no sence. I think with a bigger data and more time. The result could be better.(at least after 20 epochs , the model does still not converge )
+
 
  

@@ -7,7 +7,7 @@ from keras.layers import LSTM
 from keras import callbacks
 from keras.utils import np_utils
 # load ascii text and covert to lowercase
-filename = "CHAPTERS/Charpter a1.txt"
+filename = "Charpter 1-3.txt"
 
 evaluatefilename = "Chapter2 part.txt"
 raw_text = open(filename).read()
@@ -52,11 +52,11 @@ X = numpy.reshape(dataX, (n_patterns, seq_length, 1))
 # normalize
 X = X / float(n_vocab)
 # one hot encode the output variable
-y = np_utils.to_categorical(dataY,nb_classes =46)
+y = np_utils.to_categorical(dataY)
 
 testX = numpy.reshape(testdataX, (len(testdataX), seq_length, 1))
 testX = testX / float(n_vocab)
-testY = np_utils.to_categorical(testdataY,nb_classes =46)
+testY = np_utils.to_categorical(testdataY,nb_classes =47)
 
 
 
@@ -65,8 +65,8 @@ model = Sequential()
 model.add(LSTM(256,dropout_U=0.2, input_shape=(X.shape[1], X.shape[2]),return_sequences=True))
 model.add(LSTM(256,dropout_U=0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
-filename = "weights-improvement-00-0.0795.hdf5"
-#model.load_weights(filename)
+filename = "weights-improvement-19-1.6997.hdf5.2layer"
+model.load_weights(filename)
 
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
