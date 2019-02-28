@@ -77,7 +77,7 @@ I knew another model which could do this task. It is called [FastText](https://g
 [here](https://github.com/licheng5625/data-science-task/tree/master/TextRank/summaries)
 
 
-## Text Gereration
+## Text Generation 
  We could train a RNN model to gererate text to simulate Leo Tolstoy. First I try a single layer RNN, after 20 epochs accuracy is stable around 0.022. Source code refences to Jason Brownlee's [blog](https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/). I use a sentence from chapter 4 for testing.
  ```
  
